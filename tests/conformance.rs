@@ -18,7 +18,8 @@ fn sample_msg() -> ChannelMessageEnvelope {
         channel: "chat".to_string(),
         session_id: "session-1".to_string(),
         reply_scope: None,
-        user_id: None,
+        from: None,
+        to: Vec::new(),
         correlation_id: None,
         text: Some("hello".to_string()),
         attachments: Vec::new(),
@@ -32,7 +33,7 @@ fn describe_mentions_world() {
     let json: Value = serde_json::from_str(&payload).expect("describe should be json");
     assert_eq!(
         json["component"]["world"],
-        "greentic:component/component@0.5.0"
+        "greentic:component/component@0.6.0"
     );
 }
 
